@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart":       [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "SessionEnd":         [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "UserPromptSubmit":   [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PreToolUse":         [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PostToolUse":        [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PostToolUseFailure": [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PermissionRequest":  [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PermissionDenied":   [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "Notification":       [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "Stop":               [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "StopFailure":        [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PreCompact":         [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }],
+    "PostCompact":        [{ "hooks": [{ "type": "command", "command": "python3 ~/.claude/hooks/buddy_state.py" }], "matcher": "*" }]
+  }
+}
