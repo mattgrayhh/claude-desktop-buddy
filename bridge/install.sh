@@ -8,8 +8,14 @@ SETTINGS="$HOME/.claude/settings.json"
 PLIST_SRC="$REPO_DIR/com.claude.buddy-bridge.plist"
 PLIST_DST="$HOME/Library/LaunchAgents/com.claude.buddy-bridge.plist"
 
-echo "==> installing python dep: bleak"
-python3 -m pip install --user --quiet bleak
+echo "==> creating venv + installing bleak"
+VENV="$REPO_DIR/.venv"
+if [ ! -x "$VENV/bin/python3" ]; then
+  python3 -m venv "$VENV"
+fi
+"$VENV/bin/pip" install --quiet --upgrade pip
+"$VENV/bin/pip" install --quiet bleak
+VENV_PYTHON="$VENV/bin/python3"
 
 echo "==> installing hook to $HOOKS_DIR/buddy_state.py"
 mkdir -p "$HOOKS_DIR"
@@ -43,9 +49,8 @@ print(f"added {added} hook entries")
 PY
 
 echo "==> installing launchd agent to $PLIST_DST"
-PYTHON_BIN="$(command -v python3)"
 mkdir -p "$(dirname "$PLIST_DST")"
-sed -e "s|__PYTHON__|$PYTHON_BIN|g" \
+sed -e "s|__PYTHON__|$VENV_PYTHON|g" \
     -e "s|__SCRIPT__|$REPO_DIR/buddy_bridge.py|g" \
     -e "s|__HOME__|$HOME|g" \
     "$PLIST_SRC" > "$PLIST_DST"
